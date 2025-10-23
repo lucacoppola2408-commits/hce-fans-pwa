@@ -62,11 +62,29 @@ async function initialiseApp() {
 }
 
 function registerServiceWorker() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').catch((error) => {
-      console.warn('Service Worker Registrierung fehlgeschlagen', error);
-    });
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+    return;
   }
+
+  const serviceWorkerDisabled = Boolean(window.__HCE_DISABLE_SW);
+  const hasServiceWorker = 'serviceWorker' in navigator;
+
+  if (!hasServiceWorker || serviceWorkerDisabled) {
+    return;
+  }
+
+  const { protocol, hostname } = window.location;
+  const isLocalhost = ['localhost', '127.0.0.1', '[::1]'].includes(hostname);
+  const isSecureContext =
+    protocol === 'https:' || (protocol === 'http:' && isLocalhost);
+
+  if (!isSecureContext) {
+    return;
+  }
+
+  navigator.serviceWorker.register('service-worker.js').catch((error) => {
+    console.warn('Service Worker Registrierung fehlgeschlagen', error);
+  });
 }
 
 function setupInstallPrompt() {

@@ -25,12 +25,23 @@ Kalender-Export (.ics) für jede Partie.
 ├── assets/
 │   └── icons/
 │       └── icon.svg       # PWA-App-Icon
+├── hc-erlangen-fan-app.html # Vollständig eingebettete Ein-Datei-Variante
 ├── index.html             # Einstiegsseite der App
 ├── main.js                # Logik für Countdown, Rendering und ICS-Export
 ├── manifest.webmanifest   # PWA-Manifest
 ├── service-worker.js      # Cache-Strategie für Offline-Modus
 └── styles.css             # Oberflächenlayout
 ```
+
+### Standalone-HTML-Datei
+
+Für den rein lokalen Einsatz ohne Webserver liegt mit
+`hc-erlangen-fan-app.html` eine komplett eigenständige HTML-Datei bei. Alle
+Styles und Skripte sind darin eingebettet, sodass sie sich einfach per
+Dateimanager im Browser öffnen lässt (z. B. auf Android über „In Dateien
+öffnen“). Beim Start lädt sie – wie die PWA – die aktuellen Spielpläne und
+News live nach. Ein App-Installationsdialog oder Service Worker stehen in
+dieser Variante aus technischen Gründen nicht zur Verfügung.
 
 ## Lokale Entwicklung
 
