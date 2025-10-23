@@ -1,9 +1,0 @@
-{
-"name": "HC Erlangen – Fans",
-"short_name": "HCE Fans",
-"start_url": "/hce-fans-pwa/",
-"display": "standalone",
-"background_color": "#0a0a0a",
-"theme_color": "#2563eb",
-"icons": []
-}
