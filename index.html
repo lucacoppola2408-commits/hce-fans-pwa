@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>HC Erlangen Fan App</title>
+    <meta
+      name="description"
+      content="Countdown zum nächsten Spiel, News und Spielplan des HC Erlangen in einer installierbaren Fan App."
+    />
+    <meta name="theme-color" content="#003c78" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-content">
+        <img
+          src="assets/icons/icon.svg"
+          alt="HC Erlangen Logo"
+          class="app-logo"
+        />
+        <div>
+          <h1>HC Erlangen Fan App</h1>
+          <p class="tagline">Immer wissen, wann der HCE wieder auf der Platte steht.</p>
+        </div>
+      </div>
+      <button class="install-button" id="installButton" hidden>
+        App installieren
+      </button>
+    </header>
+
+    <main>
+      <section id="next-match" aria-live="polite">
+        <h2>Nächstes Spiel</h2>
+        <div class="card" id="next-match-card">
+          <p class="loading">Spielplan wird geladen …</p>
+        </div>
+      </section>
+
+      <section id="news">
+        <h2>Aktuelle Nachrichten</h2>
+        <p class="meta" id="news-updated" hidden></p>
+        <div class="card" id="news-list">
+          <p class="loading">Neuigkeiten werden geladen …</p>
+        </div>
+      </section>
+
+      <section id="schedule">
+        <h2>Spielplan</h2>
+        <p class="meta" id="schedule-updated" hidden></p>
+        <div class="filters" role="group" aria-label="Spielort-Filter">
+          <button class="filter-button active" data-filter="all">Alle Spiele</button>
+          <button class="filter-button" data-filter="home">Heimspiele</button>
+          <button class="filter-button" data-filter="away">Auswärtsspiele</button>
+        </div>
+        <div class="schedule-grid" id="schedule-grid" aria-live="polite">
+          <p class="loading">Spielplan wird geladen …</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Daten ohne Gewähr. Änderungen an Spielterminen sind möglich. Die App
+        kann als PWA installiert oder über Tools wie Bubblewrap in eine APK für
+        Android verpackt werden.
+      </p>
+    </footer>
+
+    <noscript>
+      Diese App benötigt JavaScript, um den Countdown, Neuigkeiten und den
+      Spielplan anzuzeigen.
+    </noscript>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

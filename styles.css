@@ -1,0 +1,313 @@
+:root {
+  color-scheme: light dark;
+  --hce-blue: #003c78;
+  --hce-red: #d62828;
+  --surface: #ffffff;
+  --surface-muted: rgba(255, 255, 255, 0.75);
+  --text-primary: #0b1521;
+  --text-secondary: rgba(11, 21, 33, 0.74);
+  --border-color: rgba(11, 21, 33, 0.12);
+  --shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #0d1826;
+    --surface-muted: rgba(13, 24, 38, 0.82);
+    --text-primary: #f6f8fb;
+    --text-secondary: rgba(246, 248, 251, 0.74);
+    --border-color: rgba(246, 248, 251, 0.14);
+    --shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(160deg, #0f1f35 0%, #0f1f35 30%, #06111f 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: min(960px, 100vw);
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  flex: 1;
+}
+
+.app-header {
+  background: var(--surface-muted);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-logo {
+  width: 56px;
+  height: 56px;
+}
+
+.tagline {
+  margin: 0.15rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+h1,
+ h2,
+ h3 {
+  margin: 0;
+  font-weight: 700;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--surface);
+}
+
+section {
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.loading {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.meta {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.notes {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.next-match-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.matchday {
+  font-weight: 600;
+  color: var(--hce-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.competition {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.next-match-teams {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--hce-blue);
+}
+
+.next-match-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.countdown {
+  font-size: 1.35rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  background: rgba(0, 60, 120, 0.08);
+  color: var(--hce-blue);
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button,
+.filter-button,
+.install-button {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--hce-blue);
+  color: #fff;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  box-shadow: 0 12px 20px rgba(0, 60, 120, 0.25);
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--hce-blue);
+  border: 2px solid rgba(0, 60, 120, 0.3);
+  box-shadow: none;
+}
+
+.button:hover,
+.filter-button:hover,
+.install-button:hover {
+  transform: translateY(-1px);
+}
+
+.filter-button {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: none;
+}
+
+.filter-button.active {
+  background: var(--hce-red);
+  color: #fff;
+  border-color: transparent;
+}
+
+.news-item {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.news-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.news-item h3 {
+  font-size: 1.1rem;
+}
+
+.news-meta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.news-link {
+  color: var(--hce-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.schedule-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.match-card {
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.85rem;
+}
+
+.match-card header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.match-card h3 {
+  font-size: 1.1rem;
+  color: var(--hce-blue);
+}
+
+.match-info {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.match-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(0, 60, 120, 0.08);
+  color: var(--hce-blue);
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.away .tag.home,
+.home .tag.away {
+  display: none;
+}
+
+footer {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 0 1rem 2.5rem;
+  }
+
+  .app-header {
+    padding: 0.9rem 1rem;
+  }
+
+  .card {
+    padding: 1.35rem;
+  }
+
+  .next-match-teams {
+    font-size: 1.35rem;
+  }
+}
