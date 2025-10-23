@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HC Erlangen – Fans</title>
+<link rel="manifest" href="/hce-fans-pwa/manifest.webmanifest" />
+<meta name="theme-color" content="#2563eb" />
+<script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('/hce-fans-pwa/sw.js').catch(()=>{});
+});
+}
+</script>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/hce-fans-pwa/src/main.jsx"></script>
+</body>
+</html>
