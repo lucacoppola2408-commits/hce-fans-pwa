@@ -19,7 +19,7 @@ steps:
 with:
 node-version: 18
 cache: npm
-- run: npm ci
+- run: npm install
 - run: npm run build
 - uses: actions/upload-pages-artifact@v3
 with:
