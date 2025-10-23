@@ -1,0 +1,24 @@
+{
+  "name": "HC Erlangen Fan App",
+  "short_name": "HCE Fans",
+  "description": "Countdown, Spielplan, News und Kalender-Export für den HC Erlangen.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#06111f",
+  "theme_color": "#003c78",
+  "lang": "de-DE",
+  "icons": [
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
